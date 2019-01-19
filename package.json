@@ -1,0 +1,23 @@
+{
+  "name": "edprop",
+  "version": "1.0.0",
+  "description": "edison properties api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "api"
+  ],
+  "author": "Bhavik Gosrani",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.88.0",
+    "restify": "^7.6.0",
+    "restify-errors": "^6.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
