@@ -24,7 +24,7 @@ module.exports = server => {
                         }
                     }
                     let resultCount = output.length;
-                    res.send({ 'resultCount': resultCount, result: output });
+                    res.send(output);
                 }
                 next();
             });
@@ -52,7 +52,7 @@ module.exports = server => {
                         }
                     }
                     let resultCount = output.length;
-                    res.send({ 'ResultsCount': resultCount, "Results": output.sort((a, b) => parseFloat(b.LocationNumber) - parseFloat(a.LocationNumber)) });
+                    res.send(output.sort((a, b) => parseFloat(b.LocationNumber) - parseFloat(a.LocationNumber)));
                 }
                 next();
             });

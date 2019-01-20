@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../service/data.service';
-import { Location } from '../location'
 
 @Component({
   selector: 'app-locations',
@@ -11,7 +10,7 @@ export class LocationsComponent implements OnInit {
 
   constructor(private dataService: DataService) { }
 
-  
+
   locations: any;
 
   ngOnInit() {
@@ -19,12 +18,10 @@ export class LocationsComponent implements OnInit {
     this.getlocationData();
   }
 
-  getlocationData():void {
+  getlocationData(): void {
     this.dataService.getLocations()
       .subscribe(locations => {
-        if (location.ResultsCount > 0)
-          this.locations = location.Results;
-          
+        this.locations = locations;
       });
   }
 
