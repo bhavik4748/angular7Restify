@@ -1,3 +1,7 @@
-<p>
-  locations works!
-</p>
+<ul class="heroes">
+  <li *ngFor="let loc of locations.Results" (click)="onSelect(hero)">
+    <span class="badge">{{loc.LocationNumber}}</span> {{loc.LocationName}}
+  </li>
+</ul>
+
+<button type="button" (click)="getlocationData()">click me</button>
