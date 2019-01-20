@@ -9,8 +9,6 @@ import { DataService } from '../service/data.service';
 export class LocationsComponent implements OnInit {
 
   constructor(private dataService: DataService) { }
-
-
   locations: any;
   searchItems: any;
 
@@ -27,19 +25,19 @@ export class LocationsComponent implements OnInit {
   }
 
   showDetails(loc): void {
-    if (loc % 2 == 0) {
-      this.dataService.getStorageItems('box')
-        .subscribe(searchItems => {
-          this.searchItems = searchItems;
-        });
-    }
+    if (loc % 2 == 0)
+      this.getStorageItems('box');
 
-    else {
-      this.dataService.getStorageItems('table')
-        .subscribe(searchItems => {
-          this.searchItems = searchItems;
-        });
-    }
+    else
+      this.getStorageItems('table');
+
+  }
+
+  getStorageItems(item) {
+    this.dataService.getStorageItems(item)
+      .subscribe(searchItems => {
+        this.searchItems = searchItems;
+      });
   }
 
 }
