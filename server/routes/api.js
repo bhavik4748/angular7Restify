@@ -48,6 +48,7 @@ module.exports = server => {
                             formattedObj.Phone = loc.Phone;
                             formattedObj.NeighborhoodName = loc.NeighborhoodName;
                             formattedObj.ZipCode = loc.Address.ZipCode;
+                            formattedObj.LocationPhotoPath = config.External_Image_Path + loc.LocationPhotoPath;
                             output.push(formattedObj);
                         }
                     }

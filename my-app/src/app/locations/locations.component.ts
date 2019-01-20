@@ -12,6 +12,7 @@ export class LocationsComponent implements OnInit {
 
 
   locations: any;
+  searchItems: any;
 
   ngOnInit() {
     console.log(" init here");
@@ -23,6 +24,22 @@ export class LocationsComponent implements OnInit {
       .subscribe(locations => {
         this.locations = locations;
       });
+  }
+
+  showDetails(loc): void {
+    if (loc % 2 == 0) {
+      this.dataService.getStorageItems('box')
+        .subscribe(searchItems => {
+          this.searchItems = searchItems;
+        });
+    }
+
+    else {
+      this.dataService.getStorageItems('table')
+        .subscribe(searchItems => {
+          this.searchItems = searchItems;
+        });
+    }
   }
 
 }

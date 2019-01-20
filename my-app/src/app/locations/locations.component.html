@@ -1,7 +1,27 @@
-<ul class="heroes">
-  <li *ngFor="let loc of locations" (click)="onSelect(hero)">
-    <span class="badge">{{loc.LocationNumber}}</span> {{loc.LocationName}}
-  </li>
-</ul>
+<div *ngFor="let loc of locations;let first=first" (click)="showDetails(loc.LocationNumber,i)" class="col-xs-6 col-sm-6 col-md-6 ">
+  <div class="badge col-xs-12 col-sm-12 col-md-12 ">
+    <span class="border">{{loc.LocationNumber}} </span>
+    {{loc.LocationName}}
+  </div>
+  <br />
+  <div class="col-xs-12 col-sm-6 col-md-5">
+    <img [src]="loc.LocationPhotoPath" [alt]="loc.LocationName" class="img-thumbnail col-xs-12 col-sm-12 col-md-12">
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-7">
+    <div class="col-xs-12 col-sm-12 col-md-12">Name:{{loc.LocationName}}</div>
+    <div class="col-xs-12 col-sm-12 col-md-12">Phone:{{loc.Phone | slice:0:3}}-{{loc.Phone | slice:3:6}}-{{loc.Phone |
+      slice:6:10}} </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">Neighborhood:{{loc.NeighborhoodName}}</div>
+    <div class="col-xs-12 col-sm-12 col-md-12">Zip Code:{{loc.ZipCode}}</div>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-12">&nbsp;</div>
+  <ng-container class="col-xs-12 col-sm-12 col-md-12" *ngIf="!first">
+    <div *ngFor="let item of searchItems">
+      <div class="col-xs-12 col-sm-12 col-md-12">Name:{{item.DisplayName}}</div>
+    </div>
+  </ng-container>
 
-<button type="button" (click)="getlocationData()">click me</button>
+</div>
+
+
+<!-- <button type="button" (click)="getlocationData()">click me</button> -->
