@@ -4,19 +4,25 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LocationsComponent } from './locations/locations.component';
-import { DataService } from './service/data.service';
+import { LocationsComponent, DialogDataExampleDialog } from './locations/locations.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DemoMaterialModule } from './material-module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    LocationsComponent
+    LocationsComponent,
+    DialogDataExampleDialog
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    DemoMaterialModule
   ],
+  entryComponents: [DialogDataExampleDialog],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { DataService } from '../service/data.service';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-locations',
@@ -8,7 +9,7 @@ import { DataService } from '../service/data.service';
 })
 export class LocationsComponent implements OnInit {
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, public dialog: MatDialog) { }
   locations: any;
   searchItems: any;
 
@@ -37,7 +38,22 @@ export class LocationsComponent implements OnInit {
     this.dataService.getStorageItems(item)
       .subscribe(searchItems => {
         this.searchItems = searchItems;
+        this.openDialog(this.searchItems);
       });
   }
 
+  openDialog(searchItems) {
+    this.dialog.open(DialogDataExampleDialog, {
+      data: searchItems
+    });
+  }
 }
+
+@Component({
+  selector: 'dialog-data-example-dialog',
+  templateUrl: './dialog-data-example-dialog.html',
+})
+export class DialogDataExampleDialog {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
+}
+
