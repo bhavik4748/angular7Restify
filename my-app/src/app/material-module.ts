@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import {
 
   MatDialogModule,
+  MatProgressSpinnerModule
 
 } from '@angular/material';
 
@@ -15,6 +16,7 @@ import {
     CdkTreeModule,
     DragDropModule,
     MatDialogModule,
+    MatProgressSpinnerModule
   ]
 })
 export class DemoMaterialModule { }

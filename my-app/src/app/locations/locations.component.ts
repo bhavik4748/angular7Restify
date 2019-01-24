@@ -12,6 +12,7 @@ export class LocationsComponent implements OnInit {
   constructor(private dataService: DataService, public dialog: MatDialog) { }
   locations: any;
   searchItems: any;
+  showLoading: boolean;
 
   ngOnInit() {
     console.log(" init here");
@@ -19,9 +20,11 @@ export class LocationsComponent implements OnInit {
   }
 
   getlocationData(): void {
+    this.showLoading = true;
     this.dataService.getLocations()
       .subscribe(locations => {
         this.locations = locations;
+        this.showLoading = false;
       });
   }
 
@@ -35,8 +38,10 @@ export class LocationsComponent implements OnInit {
   }
 
   getStorageItems(item) {
+    this.showLoading = true;
     this.dataService.getStorageItems(item)
       .subscribe(searchItems => {
+        this.showLoading = false;
         this.searchItems = searchItems;
         this.openDialog(this.searchItems);
       });
