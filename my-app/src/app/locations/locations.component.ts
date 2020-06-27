@@ -15,7 +15,6 @@ export class LocationsComponent implements OnInit {
   showLoading: boolean;
 
   ngOnInit() {
-    console.log(" init here");
     this.getlocationData();
   }
 
@@ -29,12 +28,11 @@ export class LocationsComponent implements OnInit {
   }
 
   showDetails(loc): void {
-    if (loc % 2 == 0)
+    if (loc % 2 === 0) {
       this.getStorageItems('box');
-
-    else
+    } else {
       this.getStorageItems('table');
-
+    }
   }
 
   getStorageItems(item) {
@@ -49,7 +47,8 @@ export class LocationsComponent implements OnInit {
 
   openDialog(searchItems) {
     this.dialog.open(DialogDataExampleDialog, {
-      data: searchItems
+      data: searchItems,
+      width: '80%',
     });
   }
 }
