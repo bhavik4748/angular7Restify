@@ -2,28 +2,27 @@
   <mat-progress-spinner class="mat-spinner " mode="indeterminate" color="primary"></mat-progress-spinner>
   <div class="col-xs-12 col-sm-12 col-md-12 ">loading...</div>
 </div>
-
-<div *ngFor="let loc of locations;let i=index" (click)="showDetails(loc.LocationNumber,i)" class="col-xs-6 col-sm-6 col-md-6 ">
-  <div class="badge col-xs-12 col-sm-12 col-md-12 custom">
-    {{loc.LocationNumber}} - {{loc.LocationName}}
+<div class="row">
+  <div *ngFor="let loc of locations;let i=index" (click)="showDetails(loc.LocationNumber,i)" class="col-12 col-md-6 ">
+    <div class="center-block">
+      <div class="badge badge-pill  badge-secondary col-12 custom">
+        {{loc.LocationNumber}} - {{loc.LocationName}}
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-6 custom ">
+          <img [src]="loc.LocationPhotoPath" [alt]="loc.LocationName" class="img-thumbnail col-12">
+        </div>
+        <div class="col-6 pad-top-15">
+          <div class="col-12 "><strong>Name:</strong>{{loc.LocationName}}</div>
+          <div class="col-12"><strong>Phone:</strong>{{loc.Phone | slice:0:3}}-{{loc.Phone |
+                  slice:3:6}}-{{loc.Phone |
+                  slice:6:10}} </div>
+          <div class="col-12"><strong>Neighborhood:</strong>{{loc.NeighborhoodName}}</div>
+          <div class="col-12"><strong>Zip:</strong> {{loc.ZipCode}}</div>
+        </div>
+      </div>
+      <div class="col-12">&nbsp;</div>
+    </div>
   </div>
-  <br />
-  <div class="col-xs-12 col-sm-6 col-md-5 custom">
-    <img [src]="loc.LocationPhotoPath" [alt]="loc.LocationName" class="img-thumbnail col-xs-12 col-sm-12 col-md-12">
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-7 pad-top-15">
-    <div class="col-xs-12 col-sm-12 col-md-12"><strong>Name:</strong>{{loc.LocationName}}</div>
-    <div class="col-xs-12 col-sm-12 col-md-12"><strong>Phone:</strong>{{loc.Phone | slice:0:3}}-{{loc.Phone |
-      slice:3:6}}-{{loc.Phone |
-      slice:6:10}} </div>
-    <div class="col-xs-12 col-sm-12 col-md-12"><strong>Neighborhood:</strong>{{loc.NeighborhoodName}}</div>
-    <div class="col-xs-12 col-sm-12 col-md-12"><strong>Zip:</strong> {{loc.ZipCode}}</div>
-  </div>
-  <div class="col-xs-12 col-sm-12 col-md-12">&nbsp;</div>
-
-
-
 </div>
-
-
-<!-- <button type="button" (click)="getlocationData()">click me</button> -->
