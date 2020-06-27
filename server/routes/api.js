@@ -1,4 +1,3 @@
-const errors = require('restify-errors');
 const request = require('request');
 const config = require('../config');
 
