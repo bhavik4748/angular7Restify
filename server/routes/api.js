@@ -5,7 +5,7 @@ const config = require('../config');
 module.exports = server => {
     //Search api
     server.get('/search/:searchItem', (req, res, next) => {
-        request(config.External_DEV_URL + '/storageitems',
+        request(config.External_DEV_URL + '/storageitems.json',
             { json: true },
             (err, result, body) => {
                 if (err) { return console.log(err); }
@@ -32,7 +32,7 @@ module.exports = server => {
 
     // location api
     server.get('/location', (req, res, next) => {
-        request(config.External_DEV_URL + '/locations',
+        request(config.External_DEV_URL + '/locations.json',
             { json: true },
             (err, result, body) => {
                 if (err) { return console.log(err); }
