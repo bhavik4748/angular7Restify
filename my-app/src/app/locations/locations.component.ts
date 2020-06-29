@@ -24,7 +24,11 @@ export class LocationsComponent implements OnInit {
       .subscribe(locations => {
         this.locations = locations;
         this.showLoading = false;
-      });
+      },
+        err => {
+          console.log('Something went wrong!');
+          this.showLoading = false;
+        });
   }
 
   showDetails(loc): void {
@@ -37,12 +41,19 @@ export class LocationsComponent implements OnInit {
 
   getStorageItems(item) {
     this.showLoading = true;
+    this.searchItems = null;
     this.dataService.getStorageItems(item)
       .subscribe(searchItems => {
         this.showLoading = false;
         this.searchItems = searchItems;
         this.openDialog(this.searchItems);
-      });
+      },
+        err => {
+          console.log('Something went wrong!');
+          this.showLoading = false;
+          this.openDialog(this.searchItems);
+        }
+      );
   }
 
   openDialog(searchItems) {
