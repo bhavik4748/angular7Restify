@@ -8,13 +8,14 @@ import { environment } from '../../environments/environment';
 })
 export class DataService {
   baseUrl = environment.baseUrl;
+  extension = environment.extension;
   constructor(private http: HttpClient) { }
 
   getLocations() {
-    return this.http.get(this.baseUrl + '/location');
+    return this.http.get(this.baseUrl + `/location` + this.extension);
   }
 
   getStorageItems(item) {
-    return this.http.get(this.baseUrl + '/search/' + item);
+    return this.http.get(this.baseUrl + '/search/' + item + this.extension);
   }
 }
